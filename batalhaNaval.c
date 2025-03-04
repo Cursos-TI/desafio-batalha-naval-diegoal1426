@@ -36,5 +36,48 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
+    //inicializando o tabuleiro
+    int tabuleiro[10][10];
+    int navio1[3] = {3,3,3};
+    int navio2[3] = {3,3,3};
+    //preenchendo o tabuleiro com 0 para representar a agua
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j<10;j++){
+            tabuleiro[i][j] = 0;
+        }
+    }
+
+    //montando os navios:
+    //variaveis de apoio para o indice do navio
+    unsigned int horizontalX = 0;
+    unsigned int horizontalY = 7;
+
+    unsigned int verticalX = 1;
+    unsigned int verticalY = 3;
+
+    //garante que os navios não colidam no inicio do index
+    if(horizontalX == verticalX ){
+        printf("Navios colidindo\n");
+    }else if(horizontalX > 7 || horizontalY > 7 || verticalX > 7 || verticalY > 7){
+        printf("Navios saindo do tabuleiro\n");
+    }else{
+        for(int i = 0; i<3;i++){
+            tabuleiro[verticalX+i][verticalY] = navio1[i];
+            tabuleiro[horizontalX][horizontalY+i] = navio2[i];
+        }
+    }
+
+    
+
+    //exibindo o tabuleiro
+    printf("\n###### TABULEIRO ######\n\n");
+    for (int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            printf(" %i ",tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+    
+
+    return 1;
 }
