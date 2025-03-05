@@ -49,7 +49,10 @@ int main() {
 
     //exibindo o tabuleiro
     printf("\n###### TABULEIRO ######\n\n");
+    printf("    A  B  C  D  E  F  G  H  I  J  \n");
+    printf("--+------------------------------\n");
     for (int i = 0; i < 10; i++){
+        printf("%d |",i);
         for(int j = 0; j < 10; j++){
             printf(" %i ",tabuleiro[i][j]);
         }
